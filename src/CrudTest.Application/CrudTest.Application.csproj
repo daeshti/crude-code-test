@@ -13,6 +13,8 @@
     <ItemGroup>
       <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
       <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="10.3.5" />
+      <PackageReference Include="IbanNet" Version="5.3.1" />
+      <PackageReference Include="libphonenumber-csharp" Version="8.12.34" />
       <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
       <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.12" />
       <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.0" />
