@@ -32,6 +32,10 @@ namespace CrudTest.Application.Customers.Commands.CreateCustomer
         public string BankAccountNumber { get; set; }
     }
     
+    /**
+     * A Handler for <see cref="CreateCustomerCommand"/>. Triggers <see cref="CustomerCreatedEvent"/>
+     * and returns the Customer's Id.
+     */
     public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerCommand, int>
     {
         private readonly IApplicationDbContext _context;

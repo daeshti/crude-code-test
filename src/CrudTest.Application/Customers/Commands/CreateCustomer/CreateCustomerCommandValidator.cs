@@ -10,7 +10,10 @@ using PhoneNumbers;
 namespace CrudTest.Application.Customers.Commands.CreateCustomer
 {
     /**
-     * A validator for CreateCustomerCommand. Uses an injected instance of DbContext for... (comment about all the things)
+     * A validator for CreateCustomerCommand. Uses an injected instance of DbContext to cheque uniqueness
+     * constraints. Uses Google's Phone Number library to validate mobile(and only mobile, not
+     * fixed-line numbers. Uses Ibannet library to validate account number as an IBAN. must
+     * be always called async.
      */
     public class CreateCustomerCommandValidator : AbstractValidator<CreateCustomerCommand>
     {
