@@ -54,6 +54,9 @@ namespace CrudTest.Infrastructure.Migrations
 
                     b.HasKey("CustomerId");
 
+                    b.HasIndex("Email")
+                        .IsUnique();
+
                     b.ToTable("Customers");
                 });
 #pragma warning restore 612, 618

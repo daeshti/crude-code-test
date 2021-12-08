@@ -24,6 +24,12 @@ namespace CrudTest.Infrastructure.Migrations
                 {
                     table.PrimaryKey("PK_Customers", x => x.CustomerId);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Customers_Email",
+                table: "Customers",
+                column: "Email",
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

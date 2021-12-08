@@ -26,6 +26,9 @@ namespace CrudTest.Infrastructure.Persistence.Configurations
                 .IsRequired()
                 .HasMaxLength(254);
 
+            builder.HasIndex(u => u.Email)
+                .IsUnique();
+
             // Optimized for storage
             builder.Property(c => c.PhoneNumber)
                 .IsRequired()
