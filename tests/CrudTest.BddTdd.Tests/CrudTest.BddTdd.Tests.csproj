@@ -18,6 +18,8 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="NUnit" Version="3.13.2" />
+    <PackageReference Include="Respawn" Version="4.0.0" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.extensibility.core" Version="2.4.1" />
   </ItemGroup>
@@ -27,6 +29,10 @@
     <ProjectReference Include="..\..\src\CrudTest.Domain\CrudTest.Domain.csproj" />
     <ProjectReference Include="..\..\src\CrudTest.Infrastructure\CrudTest.Infrastructure.csproj" />
     <ProjectReference Include="..\..\src\CrudTest.Presentation.Server\CrudTest.Presentation.Server.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="IntegrationTests\Customers\Commands" />
   </ItemGroup>
 
 </Project>
