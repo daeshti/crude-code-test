@@ -30,7 +30,8 @@ namespace CrudTest.Infrastructure.Persistence.Configurations
             builder.Property(c => c.PhoneNumber)
                 .IsRequired()
                 .HasConversion(str => PhoneNumberAsULong(str),
-                    u64 => ULongAsPhoneNumber(u64));
+                    u64 => ULongAsPhoneNumber(u64))
+                .HasColumnType("decimal(15,0)");
 
             builder.Property(c => c.BankAccountNumber)
                 .IsRequired()
