@@ -33,6 +33,10 @@ namespace CrudTest.Application.Customers.Commands.UpdateCustomer
         public string BankAccountNumber { get; set; }
     }
     
+    /**
+     * A Handler for <see cref="UpdateCustomerCommand"/>. Retreives and checks for
+     * existence of the customer therefore it's not an upsert. Calls the DB twice.
+     */
     public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerCommand>
     {
         private readonly IApplicationDbContext _context;
