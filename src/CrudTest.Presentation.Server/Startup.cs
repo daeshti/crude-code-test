@@ -6,6 +6,14 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Linq;
+using CrudTest.Application;
+using CrudTest.Infrastructure;
+using CrudTest.Infrastructure.Persistence;
+using CrudTest.Presentation.Server.Filters;
+using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Mvc;
+using NSwag;
+using NSwag.Generation.Processors.Security;
 
 namespace CrudTest.Presentation.Server
 {
@@ -22,9 +30,23 @@ namespace CrudTest.Presentation.Server
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddApplication();
+            services.AddInfrastructure(Configuration);
+            
+            services.AddHttpContextAccessor();
 
-            services.AddControllersWithViews();
-            services.AddRazorPages();
+            services.AddControllersWithViews(options =>
+                    options.Filters.Add<ApiExceptionFilterAttribute>())
+                .AddFluentValidation(x => x.AutomaticValidationEnabled = false);
+            
+            // Customise default API behaviour
+            services.Configure<ApiBehaviorOptions>(options => 
+                options.SuppressModelStateInvalidFilter = true);
+
+            services.AddOpenApiDocument(configure =>
+            {
+                configure.Title = "CrudTest API";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -33,7 +55,6 @@ namespace CrudTest.Presentation.Server
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseWebAssemblyDebugging();
             }
             else
             {
@@ -43,16 +64,12 @@ namespace CrudTest.Presentation.Server
             }
 
             app.UseHttpsRedirection();
-            app.UseBlazorFrameworkFiles();
-            app.UseStaticFiles();
 
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapRazorPages();
                 endpoints.MapControllers();
-                endpoints.MapFallbackToFile("index.html");
             });
         }
     }
