@@ -13,4 +13,11 @@
     <PackageReference Include="coverlet.collector" Version="3.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\CrudTest.Application\CrudTest.Application.csproj" />
+    <ProjectReference Include="..\..\src\CrudTest.Domain\CrudTest.Domain.csproj" />
+    <ProjectReference Include="..\..\src\CrudTest.Infrastructure\CrudTest.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\src\CrudTest.Presentation.Server\CrudTest.Presentation.Server.csproj" />
+  </ItemGroup>
+
 </Project>
