@@ -49,7 +49,8 @@ namespace CrudTest.Application.Customers.Commands.UpdateCustomer
         {
             try
             {
-                var phoneNumber = _phoneNumberUtil.Parse(phoneNumberStr, x.PhoneNumberNationality);
+                const string internationalRegion = "ZZ";
+                var phoneNumber = _phoneNumberUtil.Parse(phoneNumberStr, internationalRegion);
                 return _phoneNumberUtil.IsValidNumber(phoneNumber) &&
                        _phoneNumberUtil.GetNumberType(phoneNumber) == PhoneNumberType.MOBILE;
             }

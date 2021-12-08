@@ -22,11 +22,6 @@ namespace CrudTest.Application.Customers.Commands.UpdateCustomer
         public DateTime DateOfBirth { get; set; }
 
         public string PhoneNumber { get; set; }
-        
-        /**
-         * This optional property will help validate the phone number.
-         */
-        public string PhoneNumberNationality { get; set; }
 
         public string Email { get; set; }
         

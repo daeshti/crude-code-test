@@ -71,7 +71,6 @@ namespace CrudTest.BddTdd.Tests.UnitTests.Application.Customers.Commands.CreateC
                 LastName = "Belt",
                 DateOfBirth = DateTime.Parse("9/20/1988"),
                 PhoneNumber = "+989029058590",
-                PhoneNumberNationality = null,
                 Email = "abelt9@wikispaces.com",
                 BankAccountNumber = "BA17 7369 5676 5293 3471"
             };
@@ -93,7 +92,6 @@ namespace CrudTest.BddTdd.Tests.UnitTests.Application.Customers.Commands.CreateC
         {
             var command = PrepareCommand();
             command.PhoneNumber = "";
-            command.PhoneNumberNationality = null;
             var validationResult = await _validator.ValidateAsync(command);
             validationResult.Errors.Select(e => e.ErrorMessage).Should().BeEquivalentTo(new[]
             {
@@ -108,7 +106,6 @@ namespace CrudTest.BddTdd.Tests.UnitTests.Application.Customers.Commands.CreateC
         {
             var command = PrepareCommand();
             command.PhoneNumber = phoneNumber;
-            command.PhoneNumberNationality = null;
             var validationResult = await _validator.ValidateAsync(command);
             validationResult.Errors.Select(e => e.ErrorMessage).Should().BeEquivalentTo(new[]
             {
@@ -122,7 +119,6 @@ namespace CrudTest.BddTdd.Tests.UnitTests.Application.Customers.Commands.CreateC
         {
             var command = PrepareCommand();
             command.PhoneNumber = phoneNumber;
-            command.PhoneNumberNationality = null;
             var validationResult = await _validator.ValidateAsync(command);
             validationResult.Errors.Select(e => e.ErrorMessage).Should().BeEquivalentTo(new[]
             {
@@ -136,7 +132,6 @@ namespace CrudTest.BddTdd.Tests.UnitTests.Application.Customers.Commands.CreateC
         {
             var command = PrepareCommand();
             command.PhoneNumber = phoneNumber;
-            command.PhoneNumberNationality = null;
             var validationResult = await _validator.ValidateAsync(command);
             validationResult.IsValid.Should().BeTrue();
         }
