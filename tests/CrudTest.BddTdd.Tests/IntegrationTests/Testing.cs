@@ -37,7 +37,7 @@ namespace CrudTest.BddTdd.Tests.IntegrationTests
 
             services.AddSingleton(Mock.Of<IWebHostEnvironment>(w =>
                 w.EnvironmentName == "Development" &&
-                w.ApplicationName == "Helper.WebUI"));
+                w.ApplicationName == "CrudTest.Presentation.Server"));
 
             services.AddLogging();
 
