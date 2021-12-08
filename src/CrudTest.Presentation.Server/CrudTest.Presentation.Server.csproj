@@ -19,10 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\CrudTest.Application\CrudTest.Application.csproj" />
     <ProjectReference Include="..\CrudTest.Domain\CrudTest.Domain.csproj" />
     <ProjectReference Include="..\CrudTest.Infrastructure\CrudTest.Infrastructure.csproj" />
